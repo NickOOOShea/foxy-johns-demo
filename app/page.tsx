@@ -19,16 +19,20 @@ export default function HomePage() {
     <>
       {/* ============================================
           HERO - "Pub. Hardware. Bicycles."
-          The defining statement, full-bleed exterior
+          Full-bleed exterior shot
       ============================================ */}
-      <section className="relative min-h-screen flex items-end bg-forest-700">
-        {/* Background - placeholder for now, will use real photo */}
-        <div className="absolute inset-0 bg-gradient-to-br from-forest-700 via-forest-800 to-ink">
-          {/* Texture overlay */}
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent" />
+      <section className="relative min-h-screen flex items-end">
+        {/* Hero background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/exterior-01.webp"
+            alt="Foxy John's - the iconic green facade on Main Street, Dingle"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/20" />
         </div>
 
         <motion.div
@@ -74,7 +78,7 @@ export default function HomePage() {
         </motion.div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
           <div className="w-6 h-10 border-2 border-cream-200/50 rounded-full flex justify-center pt-2">
             <div className="w-1.5 h-3 bg-cream-200/50 rounded-full" />
           </div>
@@ -107,25 +111,20 @@ export default function HomePage() {
 
       {/* ============================================
           ABOUT - The delightful absurdity
-          Brand Brief copy, straight from the brief
+          Shows the interior with hardware and drinkers
       ============================================ */}
-      <section id="about" className="section bg-cream-100 grain-overlay relative">
+      <section id="about" className="section bg-cream-100">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Image placeholder */}
+            {/* Image - crowded pub with hardware on walls */}
             <div className="relative order-2 lg:order-1">
-              <div className="aspect-[4/5] bg-forest-700/10 relative">
-                {/* Placeholder - will be interior shot with tools on ceiling */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-ink-muted">
-                    <div className="flex justify-center gap-4 mb-4 text-forest-600">
-                      <Beer className="w-12 h-12" />
-                      <Wrench className="w-12 h-12" />
-                      <Bike className="w-12 h-12" />
-                    </div>
-                    <p className="text-sm">Interior photo: tools hanging from ceiling, drinks at the bar</p>
-                  </div>
-                </div>
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src="/images/snug-01.webp"
+                  alt="Inside Foxy John's - locals enjoying pints while hardware hangs on the walls"
+                  fill
+                  className="object-cover"
+                />
               </div>
               {/* Decorative frame */}
               <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-forest-700 -z-10" />
@@ -166,7 +165,7 @@ export default function HomePage() {
 
       {/* ============================================
           SERVICES - Three Things, One Shop
-          The triptych of pub/hardware/bikes
+          With real photos for each service
       ============================================ */}
       <section id="services" className="section bg-ink text-cream-50">
         <div className="container-wide">
@@ -182,51 +181,63 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Pub */}
-            <div className="group relative bg-ink-light p-8 hover:bg-forest-700 transition-colors duration-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-mustard-400 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              <Beer className="w-12 h-12 text-mustard-400 mb-6" />
-              <h3 className="font-display font-bold text-2xl text-cream-50 mb-4">The Pub</h3>
-              <p className="text-cream-300 leading-relaxed mb-6">
-                Guinness. Irish whiskeys. The occasional trad session. We don't serve food, just drinks. The way a pub should be.
-              </p>
-              <ul className="text-sm text-cream-400 space-y-2">
-                <li>Guinness & Murphy's</li>
-                <li>Irish whiskeys</li>
-                <li>Live music sessions</li>
-                <li>The famous Snug</li>
-              </ul>
+            <div className="group relative bg-ink-light overflow-hidden">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/nice-pint.webp"
+                  alt="A perfect pint of Guinness at Foxy John's bar"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <Beer className="w-10 h-10 text-mustard-400 mb-4" />
+                <h3 className="font-display font-bold text-2xl text-cream-50 mb-2">The Pub</h3>
+                <p className="text-cream-300 text-sm leading-relaxed">
+                  Guinness. Irish whiskeys. The occasional trad session. We don't serve food, just drinks. The way a pub should be.
+                </p>
+              </div>
             </div>
 
             {/* Hardware */}
-            <div className="group relative bg-ink-light p-8 hover:bg-forest-700 transition-colors duration-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-mustard-400 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              <Wrench className="w-12 h-12 text-mustard-400 mb-6" />
-              <h3 className="font-display font-bold text-2xl text-cream-50 mb-4">The Hardware</h3>
-              <p className="text-cream-300 leading-relaxed mb-6">
-                Nails, screwdrivers, tape, rubber gloves, chisels. If you need it fixed, we probably have what you need. Ask at the bar.
-              </p>
-              <ul className="text-sm text-cream-400 space-y-2">
-                <li>Hand tools</li>
-                <li>Nails & screws</li>
-                <li>Tape & adhesives</li>
-                <li>Vintage stock spanning decades</li>
-              </ul>
+            <div className="group relative bg-ink-light overflow-hidden">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/interior-03.webp"
+                  alt="The hardware shelves at Foxy John's - decades of accumulated inventory"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <Wrench className="w-10 h-10 text-mustard-400 mb-4" />
+                <h3 className="font-display font-bold text-2xl text-cream-50 mb-2">The Hardware</h3>
+                <p className="text-cream-300 text-sm leading-relaxed">
+                  Nails, screwdrivers, tape, rubber gloves, chisels. If you need it fixed, we probably have what you need. Ask at the bar.
+                </p>
+              </div>
             </div>
 
             {/* Bikes */}
-            <div className="group relative bg-ink-light p-8 hover:bg-forest-700 transition-colors duration-300">
-              <div className="absolute top-0 left-0 w-full h-1 bg-mustard-400 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              <Bike className="w-12 h-12 text-mustard-400 mb-6" />
-              <h3 className="font-display font-bold text-2xl text-cream-50 mb-4">The Bicycles</h3>
-              <p className="text-cream-300 leading-relaxed mb-6">
-                Day rentals for exploring the Dingle Peninsula. We'll sort you out with a bike and point you toward Connor Pass.
-              </p>
-              <ul className="text-sm text-cream-400 space-y-2">
-                <li>Day rentals</li>
-                <li>Basic repairs</li>
-                <li>Local route advice</li>
-                <li>Return when you're done</li>
-              </ul>
+            <div className="group relative bg-ink-light overflow-hidden">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/images/interior-02.webp"
+                  alt="Foxy John's sign showing Hardware and Rent a Bike services"
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <Bike className="w-10 h-10 text-mustard-400 mb-4" />
+                <h3 className="font-display font-bold text-2xl text-cream-50 mb-2">The Bicycles</h3>
+                <p className="text-cream-300 text-sm leading-relaxed">
+                  Day rentals for exploring the Dingle Peninsula. We'll sort you out with a bike and point you toward Connor Pass.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -234,45 +245,41 @@ export default function HomePage() {
 
       {/* ============================================
           THE SNUG - The famous feature
-          The magic corner of Foxy John's
+          Quote-focused with atmospheric styling
       ============================================ */}
-      <section id="snug" className="section bg-cream-200 grain-overlay relative">
+      <section id="snug" className="section bg-forest-700 text-cream-50">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <p className="kicker mb-4">The Magic Corner</p>
-              <h2 className="text-ink text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-8 leading-tight">
+              <p className="kicker text-mustard-400 mb-4">The Magic Corner</p>
+              <h2 className="text-cream-50 text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-8 leading-tight">
                 The Snug
               </h2>
-              <div className="space-y-6 text-lg text-ink-muted leading-relaxed">
+              <div className="space-y-6 text-lg text-cream-200 leading-relaxed">
                 <p>
                   Just left of the main entrance. A narrow wooden coffin of a space with a window view and a private drink counter with direct access to the bar.
                 </p>
-                <p className="text-ink font-medium">
+                <p className="text-cream-50 font-medium">
                   Get there early. The locals know about it too.
                 </p>
                 <p>
                   This is how Dingle has always worked: community first, categories second. Need a pint? Need a chisel? Need someone to tell you the best route over Connor Pass?
                 </p>
-                <p className="text-xl font-display font-bold text-forest-700">
+                <p className="text-2xl font-display font-bold text-mustard-400">
                   Pull up a stool.
                 </p>
               </div>
             </div>
 
-            {/* Snug illustration/placeholder */}
+            {/* Evening exterior shot */}
             <div className="relative">
-              <div className="aspect-square bg-forest-700 relative overflow-hidden">
-                {/* Placeholder for snug photo */}
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <div className="text-center text-cream-100">
-                    <Quote className="w-16 h-16 mx-auto mb-6 text-mustard-400" />
-                    <p className="font-display text-2xl italic mb-4">
-                      "The snug is the magic corner. Get there early."
-                    </p>
-                    <p className="text-mustard-400 text-sm uppercase tracking-wider">A narrow wooden booth with its own drink hatch</p>
-                  </div>
-                </div>
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <Image
+                  src="/images/exterior-02.webp"
+                  alt="Foxy John's at dusk - the iconic sign against the evening sky"
+                  fill
+                  className="object-cover"
+                />
               </div>
               {/* Decorative elements */}
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-mustard-400 -z-10" />
@@ -285,7 +292,7 @@ export default function HomePage() {
           STAR WARS - Social Proof that matters
           Mark Hamill chose this pub
       ============================================ */}
-      <section className="section bg-forest-700 text-cream-50 relative overflow-hidden">
+      <section className="section bg-ink text-cream-50 relative overflow-hidden">
         {/* Decorative stars */}
         <div className="absolute inset-0 opacity-10">
           {[...Array(30)].map((_, i) => (
@@ -319,24 +326,46 @@ export default function HomePage() {
               They chose Foxy John's because you can't fake what we have. You certainly can't build it. You can only let 125 years of business make its own kind of sense.
             </p>
           </div>
-          <div className="mt-12 inline-flex items-center gap-4 px-8 py-4 bg-ink/30 backdrop-blur-sm">
+          <div className="mt-12 inline-flex items-center gap-4 px-8 py-4 bg-forest-700/50 backdrop-blur-sm">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-mustard-400 text-mustard-400" />
               ))}
             </div>
             <span className="font-display font-bold">10/10</span>
-            <span className="text-cream-300">"One of the world's most perfect drinking locations"</span>
+            <span className="text-cream-300 text-sm">"One of the world's most perfect drinking locations"</span>
           </div>
           <p className="text-cream-400 text-sm mt-4">Scoundrel's Field Guide</p>
         </div>
       </section>
 
       {/* ============================================
-          VISIT - Find Us
-          Location, hours, contact, getting there
+          GALLERY - Quick photo grid
       ============================================ */}
-      <section id="visit" className="section bg-cream-100">
+      <section className="section-sm bg-cream-100">
+        <div className="container-wide">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="aspect-square relative overflow-hidden">
+              <Image src="/images/hardware-01.webp" alt="Busy night outside Foxy John's" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="aspect-square relative overflow-hidden">
+              <Image src="/images/interior-01.webp" alt="Foxy John's sign lit up at night" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="aspect-square relative overflow-hidden">
+              <Image src="/images/interior-04.webp" alt="Inside Foxy John's pub" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="aspect-square relative overflow-hidden">
+              <Image src="/images/exterior-04.webp" alt="Foxy John's street view" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          VISIT - Find Us
+          Location, hours, contact
+      ============================================ */}
+      <section id="visit" className="section bg-cream-200">
         <div className="container-wide">
           <div className="text-center mb-16">
             <p className="kicker mb-4">Come Visit</p>
