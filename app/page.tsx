@@ -116,12 +116,12 @@ export default function HomePage() {
       <section id="about" className="section bg-cream-100">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Image - crowded pub with hardware on walls */}
+            {/* Image - THE iconic shot: Guinness with hardware shelves behind */}
             <div className="relative order-2 lg:order-1">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
-                  src="/images/snug-01.webp"
-                  alt="Inside Foxy John's - locals enjoying pints while hardware hangs on the walls"
+                  src="/images/guinness-hardware.webp"
+                  alt="A pint of Guinness on the bar with hardware shelves and the Foxy John's sign behind"
                   fill
                   className="object-cover"
                 />
@@ -271,12 +271,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Evening exterior shot */}
+            {/* The actual snug - narrow wooden corner */}
             <div className="relative">
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image
-                  src="/images/exterior-02.webp"
-                  alt="Foxy John's at dusk - the iconic sign against the evening sky"
+                  src="/images/snug-actual.webp"
+                  alt="The Snug at Foxy John's - a narrow wooden corner with red and yellow walls"
                   fill
                   className="object-cover"
                 />
@@ -346,13 +346,13 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="aspect-square relative overflow-hidden">
-              <Image src="/images/hardware-01.webp" alt="Busy night outside Foxy John's" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/exterior-cow.webp" alt="A cow outside Foxy John's - only in Dingle" fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="aspect-square relative overflow-hidden">
-              <Image src="/images/interior-01.webp" alt="Foxy John's sign lit up at night" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/interior-bar.webp" alt="The bar at Foxy John's with warm lighting" fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="aspect-square relative overflow-hidden">
-              <Image src="/images/interior-04.webp" alt="Inside Foxy John's pub" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/back-room.webp" alt="The cozy back room with stone walls" fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="aspect-square relative overflow-hidden">
               <Image src="/images/exterior-04.webp" alt="Foxy John's street view" fill className="object-cover hover:scale-105 transition-transform duration-500" />
